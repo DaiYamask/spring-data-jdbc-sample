@@ -1,12 +1,12 @@
 package com.example.springdatajdbcsample.Entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.experimental.Wither;
 import org.springframework.data.annotation.Id;
 
 @AllArgsConstructor
-@Getter
+@Data
 public class User {
 
     @Id
