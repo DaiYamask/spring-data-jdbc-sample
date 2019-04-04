@@ -1,5 +1,6 @@
 package com.example.springdatajdbcsample.Repository;
 
+import com.example.springdatajdbcsample.Config;
 import com.example.springdatajdbcsample.Entity.User;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
@@ -7,14 +8,17 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @DataJdbcTest
+@Import(Config.class)
 @Transactional
 public class UserRepositoryTest {
 
@@ -79,4 +83,16 @@ public class UserRepositoryTest {
         Assertions.assertThat(exists).isTrue();
     }
 
+    @Test
+    public void findByName() {
+        User user1 = User.of("タグバンガーズ太郎", 8);
+        userRepository.save(user1);
+
+        User user2 = User.of("やまさきだい", 8);
+        userRepository.save(user2);
+
+        List<User> users = userRepository.findByName("タグバンガーズ太郎");
+
+        Assertions.assertThat(users.size()).isEqualTo(1);
+    }
 }

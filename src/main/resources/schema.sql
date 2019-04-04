@@ -1,10 +1,10 @@
-create table if not exists user (
-	id identity,
-	name varchar(255) not null,
-	age integer
+CREATE TABLE IF NOT EXISTS user (
+	id INTEGER IDENTITY PRIMARY KEY ,
+	name VARCHAR(255) NOT NULL,
+	age INTEGER
 );
 
-create table if not exists role (
-	id identity,
-	name varchar(255) not null
+CREATE TABLE IF NOT EXISTS role (
+	id INTEGER IDENTITY PRIMARY KEY ,
+	name VARCHAR(255) NOT NULL
 );
