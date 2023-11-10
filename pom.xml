@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <jooq.version>3.11.0</jooq.version>
+        <jooq.version>3.18.7</jooq.version>
         <spring-boot-starter-jooq.version>2.0.3.RELEASE</spring-boot-starter-jooq.version>
     </properties>
 
